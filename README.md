@@ -1,6 +1,13 @@
 # iot-NodeMuc-Micropy
 物联网开发板-ESP8266-12f系列-micropython相关资料
 
+使用工具
+刷最新固件
+
+
+
+注意：下面的废弃
+
 固件：只能1.8.5之前的
 
 刷机工具：安信可自己的ESP8266Flasher-win64
