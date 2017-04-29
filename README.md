@@ -1,12 +1,19 @@
 # iot-NodeMuc-Micropy
 物联网开发板-ESP8266-12f系列-micropython相关资料
 
-使用工具
+使用工具https://github.com/marcelstoer/nodemcu-pyflasher/releases
+
+pyflasher
+
 刷最新固件
 
 
 
 注意：下面的废弃
+
+
+
+
 
 固件：只能1.8.5之前的
 
