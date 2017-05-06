@@ -47,14 +47,14 @@ body['lhost'] = '127.0.0.1'
 body['lport'] = 8888
 Tunnels.append(body) # 加入渠道队列
 
-# body = dict()
-# body['protocol'] = 'tcp'
-# body['hostname'] = ''
-# body['subdomain'] = ''
-# body['rport'] = 59961
-# body['lhost'] = '127.0.0.1'
-# body['lport'] = 9999
-# Tunnels.append(body) # 加入渠道队列
+body = dict()
+body['protocol'] = 'tcp'
+body['hostname'] = ''
+body['subdomain'] = ''
+body['rport'] = 59961
+body['lhost'] = '127.0.0.1'
+body['lport'] = 9999
+Tunnels.append(body) # 加入渠道队列
 
 mainsocket = 0
 

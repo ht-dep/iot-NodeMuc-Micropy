@@ -1,4 +1,4 @@
-原理：
+﻿原理：
     传感器到网关（串口）
     网关到中间件（tcp）
     中间件到后台（redis订阅发布）
@@ -7,10 +7,10 @@
 
 介绍：
 	main.py ---网关代码
-	natNet ---域名穿透，tcp穿透
-	server_millde ---中间件（redis发布）
-	web_server ---web服务（flask 渲染 静态页面）
-	websocket_end ---后台（redis订阅）
+	NAT ---域名穿透，tcp穿透
+	MIDDLE ---中间件（redis发布）
+	WEB ---web服务（flask 渲染 静态页面）
+	END ---后台（redis订阅）
 	config.py ---redis和mongodb的配置
 	page_front ---前端页面（websocket，穿透）
 
