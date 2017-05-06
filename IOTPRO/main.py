@@ -1,4 +1,6 @@
 # tcp clientwifi_address
+#网关代码-nodeMcu
+
 import socket
 import utime
 import dht

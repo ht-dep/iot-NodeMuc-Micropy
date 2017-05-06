@@ -5,7 +5,8 @@ import threading
 import json
 import datetime
 from config import RedisHelper, LOG
-
+import os
+os.system("title 中间件---TCP服务")#修改命令行的显示标题
 current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 obj = RedisHelper()

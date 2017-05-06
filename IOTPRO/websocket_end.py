@@ -5,7 +5,8 @@ import threading
 import datetime
 import json
 from config import RedisHelper, LOG
-
+import os
+os.system("title 后台--WEBSOCKET服务")#修改命令行的显示标题
 logger = LOG.end()
 sd = []
 sensor_dt = {}

@@ -12,6 +12,8 @@ import sys
 import time
 import logging
 import threading
+import os
+os.system("title 内网穿透---NAT")#修改命令行的显示标题
 
 host = 'server.ngrok.cc' # Ngrok服务器地址
 port = 4443 # 端口
