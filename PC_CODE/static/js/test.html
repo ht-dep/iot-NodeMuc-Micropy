@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src=""></script>
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <title>HT的实验室</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <br>
+            <br>
+
+            <div id="app" class="jumbotron text-center">
+                <h1>
+                    <strong>{{ message }}</strong>
+                </h1>
+                <p>
+                    {{ info }}
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div id="v1" class="row clearfix ">
+        <div v-for="v in VL ">
+            <div class="col-md-4 column ">
+
+                <img v-bind:src="v.video">
+                <br>
+                <h4 class=" text-info ">数据接收时间： {{ v.time }}  </h4>
+                <h4 class=" text-info ">网关ID：{{ v.id }} </h4>
+                <h4 class=" text-info ">网关名称：{{ v.gateway }}</h4>
+                <h4 class=" text-info ">test</h4>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+
+    <div id="d2" class="row clearfix ">
+        <div v-for="s in SL ">
+            <div class="col-md-4 column ">
+
+                <h3 class=" text-success"> 当前温度： {{ s.tem }}</h3>
+                <h5>-------------------------</h5>
+                <h3 class=" text-success"> 当前湿度： {{ s.wet }}</h3>
+                <br>
+                <h4 class=" text-info ">数据接收时间： {{ s.time }}  </h4>
+                <h4 class=" text-info ">网关ID：{{ s.id }} </h4>
+                <h4 class=" text-info ">网关名称：{{ s.gateway }}</h4>
+                <h4 class=" text-info ">test</h4>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="text-center">
+            <div class="pull-center"><span>© 2016-2017 DeployStack.</span><br><span>Made by <a
+                    target="_blank">QIht</a> using <a>boostrap</a> and <a>vue</a></span></div>
+            <div class="social-icons pull-right"><a class="social-share btn btn-simple u-px-small"
+                                                    href="javascript:if(confirm(%27http://twitter.com/share?url=https://deploystack.io&amp;text=DeployStack: curated list of tools for launching websites&amp;hashtags=deploystack  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://twitter.com/share?url=https://deploystack.io&amp;text=DeployStack: curated list of tools for launching websites&amp;hashtags=deploystack%27"
+                                                    tppabs="http://twitter.com/share?url=https://deploystack.io&amp;text=DeployStack: curated list of tools for launching websites&amp;hashtags=deploystack"
+                                                    target="_blank" title="Twitter share"><i class="fa fa-twitter"></i></a><a
+                    class="social-share btn btn-simple u-px-small"
+                    href="javascript:if(confirm(%27http://www.facebook.com/sharer.php?u=https://deploystack.io  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.facebook.com/sharer.php?u=https://deploystack.io%27"
+                    tppabs="http://www.facebook.com/sharer.php?u=https://deploystack.io" target="_blank"
+                    title="Facebook share"><i class="fa fa-facebook"></i></a><a
+                    class="social-share btn btn-simple u-px-small"
+                    href="javascript:if(confirm(%27https://plus.google.com/share?url=https://deploystack.io  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27https://plus.google.com/share?url=https://deploystack.io%27"
+                    tppabs="https://plus.google.com/share?url=https://deploystack.io" target="_blank"
+                    title="Google Plus share"><i class="fa fa-google-plus"></i></a></div>
+        </div>
+    </div>
+</footer>
+
+</body>
+<script src="js/vue.js"></script>
+<script>
+    // 这是我们的Model
+    var exampleData = {
+        message: '传感器实时平台',
+        info: '     这是一套实时传输数据的传感器。'
+    }
+    var sensordata = {
+        tem: 'Hello World!',
+        wet: 'Hello World!',
+        time: 'Hello World!',
+        id: "mac_id",
+        gateway: ""
+    }
+    var videodata = {
+        video: 'Hello World!',
+        time: 'Hello World!',
+        id: "mac_id",
+        gateway: ""
+    }
+
+
+    // 创建一个 Vue 实例或 "ViewModel"
+    // 它连接 View 与 Model
+    new Vue({
+        el: '#app',
+        data: exampleData
+    })
+
+    var v2 = new Vue({
+        el: '#d2',
+        data: {SL: [sensordata, sensordata, sensordata]}
+    })
+
+    var v3 = new Vue({
+        el: '#v1',
+        data: {VL: [videodata, videodata, videodata]}
+    })
+</script>
+<script>
+    var key = {"key": "rinpo"}
+    WebSocketTest()
+    function WebSocketTest() {
+        if ("WebSocket" in window) {
+//            alert("您的浏览器支持 WebSocket!");// 打开一个
+//            var ws = new WebSocket("ws://server.ngrok.cc:59961");
+            var ws = new WebSocket("ws://127.0.0.1:9988");
+
+            ws.onopen = function () {// Web Socket 已连接上，使用 send() 方法发送数据
+
+            };
+            ws.onmessage = function (evt) {
+
+                console.log(">>>>>>>>>>>>>>>>>>>>>>")
+                console.log("接收到服务器数据")
+                var received_msg = evt.data;
+                console.log(received_msg);
+                received_msg = JSON.parse(received_msg);
+                v2.SL = received_msg.sensors;
+                v3.VL = received_msg.videos;
+
+
+                /*
+                 获取到新数据，填充到datatables里
+                 */
+//                table.ajax.reload();
+
+//                alert("数据已接收...");
+            };
+            ws.onclose = function () {// 关闭 websocket
+//                alert("连接已关闭...");
+            };
+        } else {// 浏览器不支持 WebSocket
+            alert("您的浏览器不支持 WebSocket!");
+        }
+    }
+
+</script>
+
+</html>
